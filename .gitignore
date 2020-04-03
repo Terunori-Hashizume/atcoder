@@ -1,0 +1,5 @@
+.vscode/settings.json
+test/config.py
+src/abc/**
+src/agc/**
+!.gitkeep
