@@ -19,7 +19,13 @@ def handle_cpe(cpe):
 def compile_cpp(src, exe):
     try:
         subprocess.run(
-            ["g++", "-std=c++14", "-o", exe_file, src_file],
+            ["g++", 
+            "-std=c++14", 
+            "-O2", 
+            "-Wall", "-Wextra",
+            "-D_GLIBCXX_DEBUG", "-D_GLIBCXX_DEBUG_PEDANTIC",
+            "-fsanitize=address",
+            "-o", exe_file, src_file],
             stderr=subprocess.PIPE,
             check=True)
     except subprocess.CalledProcessError as cpe:
